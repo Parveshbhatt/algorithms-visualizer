@@ -1,25 +1,85 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {Component} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Navbar from './components/Navbar';
+import Visualizer from './components/Visualizer';
+import { bubbleSort } from './algorithms/Bubble';
+
+
+const length = 60;
+
+class App extends Component{
+
+  state = {
+    array: [],
+    count: length,
+    speed: 50
+  };
+
+  componentDidMount() { // Reset The array as soon as DOM is mounted
+    this.handleReset();
+  }
+
+  handleRandom = (min, max) => { // function to generate a random number between min and max
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+    
+  }
+
+  handleReset = () => { // function to generate a new random array 
+    const array = [];
+    for (let i = 0; i < 60; i++) {
+      array.push(this.handleRandom(10, 1000));
+    }
+    this.setState({ array });
+  }
+
+  handleSpeed = (n) => { // function to set speed of slider to state
+    let p = 100 - n;
+    this.setState({ speed:p })
+    console.log(this.state.speed)
+  }
+
+  buttonDisabler = (n) => { // function to make buttons not work while sorting is going on
+    
+    let buttons = document.getElementsByClassName('btn');
+    let slider = document.getElementById('slider');
+    if (n === 0) {
+      slider.disabled = true;
+      for (let i = 0; i < buttons.length; i++)  {
+        buttons[i].disabled = true;
+    }
+    }
+    else if (n === 1) {
+      slider.disabled = false;
+      for (let i = 0; i < buttons.length; i++)  {
+        buttons[i].disabled = false;
+    }
+    } 
+  }
+
+
+  handleBubble = async() => { // Bubble Sort
+    
+    let { array } = this.state;
+    this.buttonDisabler(0);
+    await bubbleSort(array, this.state.speed);
+    this.buttonDisabler(1);
+  }
+
+  render(){
+    return (
+      <div>
+        <Navbar
+        onBubble={this.handleBubble}
+         />
+        <Visualizer array={this.state.array}/>
+
+      </div>
+    );
+  }
+
 }
 
 export default App;
