@@ -73,6 +73,7 @@ class App extends Component{
       <div>
         <Navbar
         onBubble={this.handleBubble}
+        onReset={this.handleReset}
          />
         <Visualizer array={this.state.array}/>
 

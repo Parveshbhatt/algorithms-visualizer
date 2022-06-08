@@ -10,8 +10,6 @@ export async function bubbleSort(arr, speed) {
     }
 }
 
-
-
 async function swap(arr, a, b, speed) { // takes original array and 2 values and swaps bar heights 
     let bars = document.getElementsByClassName("array-bar");
 
@@ -24,8 +22,8 @@ async function swap(arr, a, b, speed) { // takes original array and 2 values and
     [arr[a], arr[b]] = [arr[b], arr[a]];
     await delay(speed);
 
-    bars[a].style.backgroundColor = 'powderblue';
-    bars[b].style.backgroundColor = 'powderblue';   
+    bars[a].style.backgroundColor = 'green';
+    bars[b].style.backgroundColor = 'green';   
 }
 
 
