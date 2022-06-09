@@ -55,6 +55,16 @@ class Navbar extends Component {
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
+                <button
+                  className="btn btn-warning m-2"
+                  onClick={() => this.props.onBubble()}
+                  data-bs-toggle="collapse" 
+                  data-bs-target=".navbar-collapse.show"
+                >
+                  Bubble Sort
+                </button>
+              </li>
+              <li className="nav-item">
               <button
                   className="btn btn-warning m-2"
                   onClick={() => this.props.onInsertion()}
@@ -74,16 +84,7 @@ class Navbar extends Component {
                   Selection Sort
                 </button>
               </li>
-              <li className="nav-item">
-                <button
-                  className="btn btn-warning m-2"
-                  onClick={() => this.props.onBubble()}
-                  data-bs-toggle="collapse" 
-                  data-bs-target=".navbar-collapse.show"
-                >
-                  Bubble Sort
-                </button>
-              </li>
+              
               <li className="nav-item">
                 <button
                   className="btn btn-warning m-2"
