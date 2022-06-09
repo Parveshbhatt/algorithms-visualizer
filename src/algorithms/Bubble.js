@@ -1,12 +1,14 @@
 
 export async function bubbleSort(arr, speed) {
     const len = arr.length;
+    let bars1 = document.getElementsByClassName("array-bar");
     for(let i = len; i > 1; i-- ) {
         for(let j = 0; j < i; j++) {
             if (arr[j] > arr[j + 1]) {
                 await swap(arr, j, j + 1, speed);
             }
         }
+        bars1[i-1].style.backgroundColor = 'green';
     }
 }
 
@@ -22,8 +24,8 @@ async function swap(arr, a, b, speed) { // takes original array and 2 values and
     [arr[a], arr[b]] = [arr[b], arr[a]];
     await delay(speed);
 
-    bars[a].style.backgroundColor = 'green';
-    bars[b].style.backgroundColor = 'green';   
+    bars[a].style.backgroundColor = 'rgb(84, 109, 185)';
+    bars[b].style.backgroundColor = 'rgb(84, 109, 185)';   
 }
 
 
@@ -31,3 +33,5 @@ async function swap(arr, a, b, speed) { // takes original array and 2 values and
 function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
   }
+
+  

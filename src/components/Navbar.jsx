@@ -55,7 +55,7 @@ class Navbar extends Component {
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <button
+              <button
                   className="btn btn-warning m-2"
                   onClick={() => this.props.onInsertion()}
                   data-bs-toggle="collapse" 

@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import Navbar from './components/Navbar';
 import Visualizer from './components/Visualizer';
 import { bubbleSort } from './algorithms/Bubble';
+import { insertionSort } from './algorithms/insertion';
 
 
 const length = 60;
@@ -33,6 +34,10 @@ class App extends Component{
       array.push(this.handleRandom(10, 1000));
     }
     this.setState({ array });
+    let bars2 = document.getElementsByClassName("array-bar");
+    for(let a=0; a<bars2.length; a++){
+      bars2[a].style.backgroundColor = 'rgb(84, 109, 185)';
+    }
   }
 
   handleSpeed = (n) => { // function to set speed of slider to state
@@ -68,12 +73,21 @@ class App extends Component{
     this.buttonDisabler(1);
   }
 
+  handleInsertion = async() => { // Insertion Sort
+    const { array } = this.state;
+    this.buttonDisabler(0)
+    await insertionSort(array, array.length, this.state.speed);
+    this.buttonDisabler(1);
+  }
+
   render(){
     return (
       <div>
         <Navbar
-        onBubble={this.handleBubble}
         onReset={this.handleReset}
+        onBubble={this.handleBubble}
+        onInsertion={this.handleInsertion}
+        onSpeed={this.handleSpeed}
          />
         <Visualizer array={this.state.array}/>
 
