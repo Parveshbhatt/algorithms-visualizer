@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import Visualizer from './components/Visualizer';
 import { bubbleSort } from './algorithms/Bubble';
 import { insertionSort } from './algorithms/insertion';
-
+import { selectionSort } from './algorithms/selection';
 
 const length = 60;
 
@@ -80,6 +80,13 @@ class App extends Component{
     this.buttonDisabler(1);
   }
 
+  handleSelection = async() => { // Selection Sort
+    let { array } = this.state;
+    this.buttonDisabler(0);
+    await selectionSort(array, this.state.speed);   
+    this.buttonDisabler(1);
+}
+
   render(){
     return (
       <div>
@@ -87,6 +94,7 @@ class App extends Component{
         onReset={this.handleReset}
         onBubble={this.handleBubble}
         onInsertion={this.handleInsertion}
+        onSelection={this.handleSelection}
         onSpeed={this.handleSpeed}
          />
         <Visualizer array={this.state.array}/>
