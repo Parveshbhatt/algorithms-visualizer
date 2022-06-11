@@ -8,6 +8,7 @@ import { insertionSort } from './algorithms/insertion';
 import { selectionSort } from './algorithms/selection';
 import { mergeSort } from './algorithms/Merge';
 import { quickSort } from './algorithms/Quick';
+import { heapSort } from './algorithms/Heap';
 
 const length = 60;
 
@@ -104,6 +105,13 @@ class App extends Component{
     this.buttonDisabler(1);
   }
 
+  handleHeap= async() => { // Heap Sort
+    let { array } = this.state;
+    this.buttonDisabler(0);
+    await heapSort(array, this.state.speed);   
+    this.buttonDisabler(1);
+  }
+
   render(){
     return (
       <div>
@@ -114,6 +122,7 @@ class App extends Component{
         onSelection={this.handleSelection}
         onMerge={this.handleMerge}
         onQuick={this.handleQuick}
+        onHeap={this.handleHeap}
         onSpeed={this.handleSpeed}
          />
         <Visualizer array={this.state.array}/>
