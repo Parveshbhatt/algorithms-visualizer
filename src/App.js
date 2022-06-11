@@ -6,6 +6,7 @@ import Visualizer from './components/Visualizer';
 import { bubbleSort } from './algorithms/Bubble';
 import { insertionSort } from './algorithms/insertion';
 import { selectionSort } from './algorithms/selection';
+import { mergeSort } from './algorithms/Merge';
 
 const length = 60;
 
@@ -87,6 +88,13 @@ class App extends Component{
     this.buttonDisabler(1);
 }
 
+  handleMerge = async() => { // Merge Sort
+    let { array } = this.state;
+    this.buttonDisabler(0);
+    await mergeSort(array, this.state.speed);   
+    this.buttonDisabler(1);
+}
+
   render(){
     return (
       <div>
@@ -95,6 +103,7 @@ class App extends Component{
         onBubble={this.handleBubble}
         onInsertion={this.handleInsertion}
         onSelection={this.handleSelection}
+        onMerge={this.handleMerge}
         onSpeed={this.handleSpeed}
          />
         <Visualizer array={this.state.array}/>
