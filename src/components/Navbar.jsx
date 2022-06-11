@@ -98,21 +98,21 @@ class Navbar extends Component {
               <li className="nav-item">
                 <button
                   className="btn btn-warning m-2"
-                  onClick={() => this.props.onHeap()}
-                  data-bs-toggle="collapse" 
-                  data-bs-target=".navbar-collapse.show"
-                >
-                  Heap Sort
-                </button>
-              </li>
-              <li className="nav-item">
-                <button
-                  className="btn btn-warning m-2"
                   onClick={() => this.props.onQuick()}
                   data-bs-toggle="collapse" 
                   data-bs-target=".navbar-collapse.show"
                 >
                   Quick Sort
+                </button>
+              </li>
+              <li className="nav-item">
+                <button
+                  className="btn btn-warning m-2"
+                  onClick={() => this.props.onHeap()}
+                  data-bs-toggle="collapse" 
+                  data-bs-target=".navbar-collapse.show"
+                >
+                  Heap Sort
                 </button>
               </li>
             </ul>

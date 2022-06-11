@@ -7,6 +7,7 @@ import { bubbleSort } from './algorithms/Bubble';
 import { insertionSort } from './algorithms/insertion';
 import { selectionSort } from './algorithms/selection';
 import { mergeSort } from './algorithms/Merge';
+import { quickSort } from './algorithms/Quick';
 
 const length = 60;
 
@@ -86,14 +87,22 @@ class App extends Component{
     this.buttonDisabler(0);
     await selectionSort(array, this.state.speed);   
     this.buttonDisabler(1);
-}
+  }
 
   handleMerge = async() => { // Merge Sort
     let { array } = this.state;
     this.buttonDisabler(0);
     await mergeSort(array, this.state.speed);   
     this.buttonDisabler(1);
-}
+  }
+
+
+  handleQuick= async() => { // Quick Sort
+    let { array } = this.state;
+    this.buttonDisabler(0);
+    await quickSort(array, this.state.speed);   
+    this.buttonDisabler(1);
+  }
 
   render(){
     return (
@@ -104,6 +113,7 @@ class App extends Component{
         onInsertion={this.handleInsertion}
         onSelection={this.handleSelection}
         onMerge={this.handleMerge}
+        onQuick={this.handleQuick}
         onSpeed={this.handleSpeed}
          />
         <Visualizer array={this.state.array}/>

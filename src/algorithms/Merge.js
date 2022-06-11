@@ -2,7 +2,9 @@ export async function mergeSort(array, speed) {
     const animations = getMergeSortAnimations(array); // gets the animations array from function
     console.log(animations);
 
-    for (let i = 0; i < animations.length; i++) { // loops through animations and every 3 animations does a color change otherwise a value change
+    
+    // loops through animations and every 3 animations does a color change otherwise a value change
+    for (let i = 0; i < animations.length; i++) { 
       const arrayBars = document.getElementsByClassName('array-bar');
       const isColorChange = i % 3 !== 2;
       if (isColorChange) {
