@@ -29,7 +29,7 @@ export async function swap(arr, a, b, speed) { // takes original array and 2 val
     [arr[a], arr[b]] = [arr[b], arr[a]];
     await delay(speed);
 
-    bars[a].style.backgroundColor = 'green';
+    bars[a].style.backgroundColor = 'rgb(84, 109, 185)';
     bars[b].style.backgroundColor = 'green';   
 }
 
