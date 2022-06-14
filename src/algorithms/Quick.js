@@ -13,7 +13,7 @@ export async function quickSort (array, speed) {
         if (typeof barThreeIdx !== 'undefined') {
             // colors the different elements in animation array if its a comparison 
             arrayBars[barOneIdx].style.backgroundColor = 'red';
-            arrayBars[barTwoIdx].style.backgroundColor = 'pink';
+            arrayBars[barTwoIdx].style.backgroundColor = 'yellow';
             (barThreeIdx > LENGTH) ? barThreeIdx = LENGTH : arrayBars[barThreeIdx].style.backgroundColor = 'black';
         }
       } 
